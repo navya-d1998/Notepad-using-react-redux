@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UsersDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+          <Property Name="gender" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kkk">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Project_members">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="project_tasks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+          <Property Name="taskname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="duration" Type="float" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameofservice" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="fromdate" Type="date" Nullable="false" />
+          <Property Name="todate" Type="date" Nullable="false" />
+          <Property Name="reviewr_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="project_status" Type="nvarchar" MaxLength="50" />
+          <Property Name="manager_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Project_details" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="timesheet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_members_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="hours" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="500" />
+          <Property Name="status" Type="nvarchar" MaxLength="30" />
+          <Property Name="comments_reviwer" Type="nvarchar" MaxLength="500" />
+          <Property Name="comments_manager" Type="nvarchar" MaxLength="500" />
+          <Property Name="resubmit_flag" Type="int" />
+          <Property Name="projecttask_id" Type="int" />
+        </EntityType>
+        <EntityType Name="timesheet_analysis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="timesheet_id" Type="int" Nullable="false" />
+          <Property Name="resubmit_count" Type="int" />
+          <Property Name="reject_count" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__employees__user___45F365D3">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_m__emplo__5070F446">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project_members">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_m__proje__4F7CD00D">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Project_members">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__project_t__proje__4CA06362">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="project_tasks" Type="Self.project_tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="project_tasks">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__manage__49C3F6B7">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="projects" Type="Self.projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="manager_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__review__48CFD27E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="projects" Type="Self.projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="reviewr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__proje__534D60F1">
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="1" />
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project_members">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet">
+              <PropertyRef Name="project_members_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__proje__5441852A">
+          <End Role="project_tasks" Type="Self.project_tasks" Multiplicity="0..1" />
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_tasks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet">
+              <PropertyRef Name="projecttask_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__times__571DF1D5">
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="1" />
+          <End Role="timesheet_analysis" Type="Self.timesheet_analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="timesheet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet_analysis">
+              <PropertyRef Name="timesheet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UsersDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kkk" EntityType="Self.kkk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_members" EntityType="Self.Project_members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_tasks" EntityType="Self.project_tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="timesheet" EntityType="Self.timesheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="timesheet_analysis" EntityType="Self.timesheet_analysis" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__employees__user___45F365D3" Association="Self.FK__employees__user___45F365D3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_m__emplo__5070F446" Association="Self.FK__Project_m__emplo__5070F446">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Project_members" EntitySet="Project_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_m__proje__4F7CD00D" Association="Self.FK__Project_m__proje__4F7CD00D">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="Project_members" EntitySet="Project_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__project_t__proje__4CA06362" Association="Self.FK__project_t__proje__4CA06362">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="project_tasks" EntitySet="project_tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__manage__49C3F6B7" Association="Self.FK__projects__manage__49C3F6B7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__review__48CFD27E" Association="Self.FK__projects__review__48CFD27E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__proje__534D60F1" Association="Self.FK__timesheet__proje__534D60F1">
+            <End Role="Project_members" EntitySet="Project_members" />
+            <End Role="timesheet" EntitySet="timesheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__proje__5441852A" Association="Self.FK__timesheet__proje__5441852A">
+            <End Role="project_tasks" EntitySet="project_tasks" />
+            <End Role="timesheet" EntitySet="timesheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__times__571DF1D5" Association="Self.FK__timesheet__times__571DF1D5">
+            <End Role="timesheet" EntitySet="timesheet" />
+            <End Role="timesheet_analysis" EntitySet="timesheet_analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="employees" Relationship="Self.FK__employees__user___45F365D3" FromRole="AspNetUsers" ToRole="employees" />
+          <NavigationProperty Name="Project_members" Relationship="Self.FK__Project_m__emplo__5070F446" FromRole="AspNetUsers" ToRole="Project_members" />
+          <NavigationProperty Name="projects" Relationship="Self.FK__projects__manage__49C3F6B7" FromRole="AspNetUsers" ToRole="projects" />
+          <NavigationProperty Name="projects1" Relationship="Self.FK__projects__review__48CFD27E" FromRole="AspNetUsers" ToRole="projects" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__employees__user___45F365D3" FromRole="employees" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="kkk">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Project_members">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Project_m__emplo__5070F446" FromRole="Project_members" ToRole="AspNetUsers" />
+          <NavigationProperty Name="project" Relationship="Self.FK__Project_m__proje__4F7CD00D" FromRole="Project_members" ToRole="projects" />
+          <NavigationProperty Name="timesheets" Relationship="Self.FK__timesheet__proje__534D60F1" FromRole="Project_members" ToRole="timesheet" />
+        </EntityType>
+        <EntityType Name="project_tasks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <Property Name="taskname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="duration" Type="Double" />
+          <NavigationProperty Name="project" Relationship="Self.FK__project_t__proje__4CA06362" FromRole="project_tasks" ToRole="projects" />
+          <NavigationProperty Name="timesheets" Relationship="Self.FK__timesheet__proje__5441852A" FromRole="project_tasks" ToRole="timesheet" />
+        </EntityType>
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameofservice" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fromdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="todate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reviewr_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="project_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="manager_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Project_details" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__projects__manage__49C3F6B7" FromRole="projects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__projects__review__48CFD27E" FromRole="projects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Project_members" Relationship="Self.FK__Project_m__proje__4F7CD00D" FromRole="projects" ToRole="Project_members" />
+          <NavigationProperty Name="project_tasks" Relationship="Self.FK__project_t__proje__4CA06362" FromRole="projects" ToRole="project_tasks" />
+        </EntityType>
+        <EntityType Name="timesheet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_members_id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hours" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="comments_reviwer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="comments_manager" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="resubmit_flag" Type="Int32" />
+          <Property Name="projecttask_id" Type="Int32" />
+          <NavigationProperty Name="Project_members" Relationship="Self.FK__timesheet__proje__534D60F1" FromRole="timesheet" ToRole="Project_members" />
+          <NavigationProperty Name="project_tasks" Relationship="Self.FK__timesheet__proje__5441852A" FromRole="timesheet" ToRole="project_tasks" />
+          <NavigationProperty Name="timesheet_analysis" Relationship="Self.FK__timesheet__times__571DF1D5" FromRole="timesheet" ToRole="timesheet_analysis" />
+        </EntityType>
+        <EntityType Name="timesheet_analysis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="timesheet_id" Type="Int32" Nullable="false" />
+          <Property Name="resubmit_count" Type="Int32" />
+          <Property Name="reject_count" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="timesheet" Relationship="Self.FK__timesheet__times__571DF1D5" FromRole="timesheet_analysis" ToRole="timesheet" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees__user___45F365D3">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_m__emplo__5070F446">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project_members">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__manage__49C3F6B7">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="projects" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="manager_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__review__48CFD27E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="projects" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="reviewr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_m__proje__4F7CD00D">
+          <End Role="projects" Type="Self.project" Multiplicity="1" />
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Project_members">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__proje__534D60F1">
+          <End Role="Project_members" Type="Self.Project_members" Multiplicity="1" />
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project_members">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet">
+              <PropertyRef Name="project_members_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__project_t__proje__4CA06362">
+          <End Role="projects" Type="Self.project" Multiplicity="1" />
+          <End Role="project_tasks" Type="Self.project_tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="project_tasks">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__proje__5441852A">
+          <End Role="project_tasks" Type="Self.project_tasks" Multiplicity="0..1" />
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_tasks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet">
+              <PropertyRef Name="projecttask_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__timesheet__times__571DF1D5">
+          <End Role="timesheet" Type="Self.timesheet" Multiplicity="1" />
+          <End Role="timesheet_analysis" Type="Self.timesheet_analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="timesheet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="timesheet_analysis">
+              <PropertyRef Name="timesheet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="UsersDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="kkks" EntityType="Self.kkk" />
+          <EntitySet Name="Project_members" EntityType="Self.Project_members" />
+          <EntitySet Name="project_tasks" EntityType="Self.project_tasks" />
+          <EntitySet Name="projects" EntityType="Self.project" />
+          <EntitySet Name="timesheets" EntityType="Self.timesheet" />
+          <EntitySet Name="timesheet_analysis" EntityType="Self.timesheet_analysis" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees__user___45F365D3" Association="Self.FK__employees__user___45F365D3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_m__emplo__5070F446" Association="Self.FK__Project_m__emplo__5070F446">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Project_members" EntitySet="Project_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__manage__49C3F6B7" Association="Self.FK__projects__manage__49C3F6B7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__review__48CFD27E" Association="Self.FK__projects__review__48CFD27E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_m__proje__4F7CD00D" Association="Self.FK__Project_m__proje__4F7CD00D">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="Project_members" EntitySet="Project_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__proje__534D60F1" Association="Self.FK__timesheet__proje__534D60F1">
+            <End Role="Project_members" EntitySet="Project_members" />
+            <End Role="timesheet" EntitySet="timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__project_t__proje__4CA06362" Association="Self.FK__project_t__proje__4CA06362">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="project_tasks" EntitySet="project_tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__proje__5441852A" Association="Self.FK__timesheet__proje__5441852A">
+            <End Role="project_tasks" EntitySet="project_tasks" />
+            <End Role="timesheet" EntitySet="timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__timesheet__times__571DF1D5" Association="Self.FK__timesheet__times__571DF1D5">
+            <End Role="timesheet" EntitySet="timesheets" />
+            <End Role="timesheet_analysis" EntitySet="timesheet_analysis" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UsersDBModelStoreContainer" CdmEntityContainer="UsersDBEntities2">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="UsersDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="UsersDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="UsersDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="UsersDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="UsersDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="UsersDBModel.employee">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kkks">
+            <EntityTypeMapping TypeName="UsersDBModel.kkk">
+              <MappingFragment StoreEntitySet="kkk">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_members">
+            <EntityTypeMapping TypeName="UsersDBModel.Project_members">
+              <MappingFragment StoreEntitySet="Project_members">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_tasks">
+            <EntityTypeMapping TypeName="UsersDBModel.project_tasks">
+              <MappingFragment StoreEntitySet="project_tasks">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="UsersDBModel.project">
+              <MappingFragment StoreEntitySet="projects">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nameofservice" ColumnName="nameofservice" />
+                <ScalarProperty Name="fromdate" ColumnName="fromdate" />
+                <ScalarProperty Name="todate" ColumnName="todate" />
+                <ScalarProperty Name="reviewr_id" ColumnName="reviewr_id" />
+                <ScalarProperty Name="project_status" ColumnName="project_status" />
+                <ScalarProperty Name="manager_id" ColumnName="manager_id" />
+                <ScalarProperty Name="Project_details" ColumnName="Project_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="timesheets">
+            <EntityTypeMapping TypeName="UsersDBModel.timesheet">
+              <MappingFragment StoreEntitySet="timesheet">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="project_members_id" ColumnName="project_members_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="hours" ColumnName="hours" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="comments_reviwer" ColumnName="comments_reviwer" />
+                <ScalarProperty Name="comments_manager" ColumnName="comments_manager" />
+                <ScalarProperty Name="resubmit_flag" ColumnName="resubmit_flag" />
+                <ScalarProperty Name="projecttask_id" ColumnName="projecttask_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="timesheet_analysis">
+            <EntityTypeMapping TypeName="UsersDBModel.timesheet_analysis">
+              <MappingFragment StoreEntitySet="timesheet_analysis">
+                <ScalarProperty Name="timesheet_id" ColumnName="timesheet_id" />
+                <ScalarProperty Name="resubmit_count" ColumnName="resubmit_count" />
+                <ScalarProperty Name="reject_count" ColumnName="reject_count" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="UsersDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

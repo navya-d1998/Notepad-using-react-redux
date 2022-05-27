@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\App_Start",
+    "\\Controllers",
+    "\\Models",
+    "\\Views",
+    "\\Views\\department",
+    "\\Views\\emp",
+    "\\Views\\employee",
+    "\\Views\\Home",
+    "\\Views\\Shared"
+  ],
+  "SelectedNode": "\\Web.config",
+  "PreviewInSolutionExplorer": false
+}

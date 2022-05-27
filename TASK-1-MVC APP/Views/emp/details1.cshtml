@@ -1,0 +1,63 @@
+﻿
+
+@using WebApplication1.Models;
+
+@model WebApplication1.Models.employee
+
+@{
+    ViewBag.Title = "details";
+}
+
+<div style="font-family:Arial">
+
+    <h2>Employee Details</h2>
+
+
+
+    <table>
+        <tr>
+            <td>
+                Employee ID:
+            </td>
+            <td>
+                @Model.id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                @Model.name
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                @Model.gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City:
+            </td>
+            <td>
+                @Model.city
+            </td>
+        </tr>
+        <tr>
+            <td>
+                email:
+            </td>
+            <td>
+                @Model.email
+            </td>
+        </tr>
+    </table>
+
+    @Html.ActionLink("go back", "Index1")
+
+</div>

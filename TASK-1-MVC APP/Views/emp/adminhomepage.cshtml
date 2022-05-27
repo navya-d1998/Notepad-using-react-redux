@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "admin";
+}
+
+<h2>welcome admin </h2>
+
+<div>
+    @Html.ActionLink("click to view and edit all employees", "Index", "emp", null)
+</div>
+<br />
+<br />
+<div>
+    @Html.ActionLink("click to view all departments", "Index1", "emp", null)
+</div>
+
+<br />
+<br />
+
+<div style="float:right;font-size:20px;display:inline-block">
+    @Html.ActionLink("logout", "login")
+</div>
